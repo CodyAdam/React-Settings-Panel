@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Deco from "./Deco";
-import TitleBar from "./TitleBar";
 import "./css/index.css";
 
 class App extends React.Component {
@@ -49,7 +48,6 @@ class MainWindow extends React.Component {
     render() {
         return (
             <div id="MainWindow">
-                <TitleBar functions={this.state.functions} />
                 <Deco />
             </div>
         );
