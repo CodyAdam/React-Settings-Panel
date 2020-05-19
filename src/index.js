@@ -1,54 +1,56 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Deco from "./Deco";
+import Settings from "./Settings";
 import "./css/index.css";
 
 class App extends React.Component {
+    constructor() {
+        super();
+        this.toggleSettings = this.toggleSettings.bind(this);
+    }
+
+    toggleSettings() {
+        let main = document.getElementById("MainWindow");
+        let sett = document.getElementById("Settings");
+
+        if (sett.classList.contains("hidden")) {
+            sett.classList.remove("hidden");
+            sett.style.display = "flex";
+            setTimeout(() => {
+                main.style.filter = "blur(10px)";
+                main.style.scale = 1.2;
+                sett.style.display = "flex";
+                sett.style.opacity = "1";
+            }, 10);
+        } else {
+            sett.classList.add("hidden");
+            main.style.filter = "blur(0px)";
+            main.style.scale = 1;
+            sett.style.opacity = "0";
+            setTimeout(() => {
+                main.style.filter = "blur(0px)";
+                main.style.scale = 1;
+                sett.style.display = "none";
+            }, 300);
+        }
+    }
+
     render() {
         return (
             <div id="App">
-                <MainWindow />
+                <MainWindow toggleSettings={this.toggleSettings} />
+                <Settings toggleSettings={this.toggleSettings} />
             </div>
         );
     }
 }
 
 class MainWindow extends React.Component {
-    constructor() {
-        super();
-
-        this.state = {
-            functions: {
-                utilityFunction1: this.utilityFunction1,
-                utilityFunction2: this.utilityFunction2,
-                utilityFunction3: this.utilityFunction3,
-                utilityFunction4: this.utilityFunction4,
-            },
-        };
-    }
-
-    utilityFunction1() {
-        alert("The button does nothing.");
-    }
-
-    utilityFunction2() {
-        alert("(╯°□°)╯︵ ┻━┻");
-    }
-
-    utilityFunction3() {
-        document.getElementById("Decoration").style.opacity = 0.5;
-        document.body.style.backgroundColor = "rgb(80, 80, 82)";
-    }
-
-    utilityFunction4() {
-        document.getElementById("Decoration").style.opacity = 1;
-        document.body.style.backgroundColor = "#F2F2F3";
-    }
-
     render() {
         return (
             <div id="MainWindow">
-                <Deco />
+                <Deco toggleSettings={this.props.toggleSettings} />
             </div>
         );
     }
