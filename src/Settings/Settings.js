@@ -7,11 +7,12 @@ export default class Settings extends React.Component {
     render() {
         return (
             <div id="Settings" className="hidden">
-                <div className="container">
-                    <button onClick={this.props.toggleSettings} className="closeButt">
+                <div id="Container">
+                    <div id="SideBar"></div>
+                    <div id="Content"></div>
+                    <button onClick={this.props.toggleSettings} id="CloseButt">
                         X
                     </button>
-                    <span>Test 1 2 3</span>
                 </div>
             </div>
         );

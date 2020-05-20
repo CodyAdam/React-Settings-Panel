@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Deco from "./Deco";
-import Settings from "./Settings";
+import Settings from "./Settings/Settings";
 import "./css/index.css";
 
 class App extends React.Component {
