@@ -43,21 +43,59 @@ body {
     #Container {
         height: 100%;
         width: 100%;
-        max-width: 1000px;
-        border: solid 1px red;
+        max-width: 1150px;
         padding: 30px;
         position: relative;
         display: flex;
     }
     #SideBar {
-        width: 225px;
+        width: 220px;
         height: 100%;
-        border: solid 1px blue;
+        overflow: auto;
+        flex-shrink: 0;
+        .group {
+            text-align: end;
+            span {
+                color: $myGrey;
+                font-size: 18px;
+                font-weight: 900;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin: 0 15px 0 0;
+            }
+            margin: 0 0 30px 0;
+        }
+        .category {
+            overflow: hidden;
+            font-size: 20px;
+            text-align: end;
+            color: $myGrey;
+            transition: all 0.2s;
+            text-overflow: ellipsis;
+            font-weight: 600;
+            padding: 3px 0 3px 0;
+            &:hover {
+                color: rgb(201, 194, 194);
+            }
+            margin: 0 15px 0 0;
+        }
+        .active {
+            font-size: 30px;
+            font-weight: 700;
+            color: $myWhite;
+        }
+    }
+    #settingsBreak {
+        width: 2px;
+        background-color: $myGrey;
+        margin: 0 30px 0 15px;
+        flex-shrink: 0;
     }
     #Content {
         flex-grow: 1;
         height: 100%;
-        border: solid 1px green;
+        border: solid 1px rgba(254, 254, 255, 0.048);
+        overflow-y: auto;
     }
     #CloseButt {
         flex-shrink: 0;
@@ -68,16 +106,16 @@ body {
         border: solid 2px $myGrey;
         border-radius: 100px;
         font-size: 20px;
-        padding: 0;
+        margin: 0 0 0 20px;
 
-        transition: transform 0.05s;
+        transition: transform 0.1s;
 
         &:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
 
         &:active {
-            transform: translateY(2px);
+            transform: translateY(3px);
         }
     }
 
