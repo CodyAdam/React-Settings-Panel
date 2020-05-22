@@ -126,10 +126,8 @@ body {
   border-radius: 100px;
   font-size: 20px;
   margin: 0 0 0 20px;
-  -webkit-transition: -webkit-transform 0.1s;
-  transition: -webkit-transform 0.1s;
-  transition: transform 0.1s;
-  transition: transform 0.1s, -webkit-transform 0.1s;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
 }
 
 #Settings #CloseButt:hover {
